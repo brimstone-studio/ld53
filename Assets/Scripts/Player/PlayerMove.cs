@@ -10,26 +10,38 @@ public class PlayerMove : MonoBehaviour
     public float GroundDrag;
     public Rigidbody PlayerRb;
     public Transform CameraHolder;
+
+    public bool IsGrounded
+    {
+        get
+        {
+            return _isGrounded;
+        }
+    }
+    private bool _isGrounded = false;
     void FixedUpdate()
     {
         // efficient access
         var thisTransform = transform;
-        var isGrounded = Physics.Raycast(thisTransform.position, Vector3.down, 2.2f);
+        _isGrounded = Physics.Raycast(thisTransform.position, Vector3.down, 1.2f, 7);
+        Debug.DrawLine(thisTransform.position, thisTransform.position + Vector3.down * 1.2f, Color.green);
 
-        if (isGrounded)
+        var speed = MovementSpeed;
+        
+        if (_isGrounded)
         {
             PlayerRb.drag = GroundDrag;
         }
         else
         {
             PlayerRb.drag = 0f;
+            speed /= 5;
         }
         
         var hInput = Input.GetAxisRaw("Horizontal");
         var vInput = Input.GetAxisRaw("Vertical");
 
-       
         var movementVector = Vector3.Normalize(thisTransform.forward * vInput + thisTransform.right * hInput);
-        PlayerRb.AddForce(movementVector * MovementSpeed, ForceMode.Force);
+        PlayerRb.AddForce(movementVector * speed, ForceMode.Force);
     }
 }

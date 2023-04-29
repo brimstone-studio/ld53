@@ -9,6 +9,8 @@ public class PlayerAim : MonoBehaviour
 
     public Rigidbody PlayerRb;
     public Transform CameraHolder;
+    
+
     void Start()
     {
         Cursor.lockState = CursorLockMode.Locked;
