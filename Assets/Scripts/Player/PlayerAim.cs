@@ -1,18 +1,29 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
-public class NewBehaviourScript : MonoBehaviour
+public class PlayerAim : MonoBehaviour
 {
-    // Start is called before the first frame update
+    public float Sensitivity = 300f;
+
+    public Rigidbody PlayerRb;
+    public Transform CameraHolder;
     void Start()
     {
-        
+        Cursor.lockState = CursorLockMode.Locked;
+        Cursor.visible = false;
     }
-
-    // Update is called once per frame
+    
     void Update()
     {
+        // yes they need to be switched up
+        float yOffset = Input.GetAxis("Mouse X") * Time.fixedDeltaTime * Sensitivity;
+        float xOffset = Input.GetAxis("Mouse Y") * Time.fixedDeltaTime * Sensitivity;
+
+        xOffset = Mathf.Clamp(-xOffset, -90f, 90f);
         
+        CameraHolder.rotation = Quaternion.Euler(CameraHolder.rotation.eulerAngles.x + xOffset, PlayerRb.rotation.eulerAngles.y + yOffset, 0f);
+        PlayerRb.rotation = Quaternion.Euler(0f, PlayerRb.rotation.eulerAngles.y + yOffset, 0f);
     }
 }
