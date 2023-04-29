@@ -12,6 +12,7 @@ public class PlayerShoot : MonoBehaviour
         
         if (Input.GetMouseButtonDown(0))
         {
+            PlayerVitalsManager.Instance.AmmoDecrease(1);
             var ray = new Ray(CameraHolder.position, CameraHolder.forward);
             if (Physics.Raycast(ray, out var hit, 50f, 7))
             {

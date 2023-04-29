@@ -12,6 +12,8 @@ GameObject:
   - component: {fileID: 6484167059063079036}
   - component: {fileID: 818154943259331896}
   - component: {fileID: 1773362170706543179}
+  - component: {fileID: 4637859354261469644}
+  - component: {fileID: 4920550629082293585}
   m_Layer: 0
   m_Name: Managers
   m_TagString: Untagged
@@ -46,6 +48,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: baa0c620f306feff68b75c0c1feb6b28, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  EscapeMenuCanvas: {fileID: 0}
 --- !u!114 &818154943259331896
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -68,5 +71,37 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 7cc2727ab7ad7f5b4942f10e90b3e931, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &4637859354261469644
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4745525300049425511}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 842d3bc01f074ff27ac63912e6e425a5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  HealthValueText: {fileID: 0}
+  AmmoValueText: {fileID: 0}
+  MoneyValueText: {fileID: 0}
+  HealthAnimator: {fileID: 0}
+  AmmoAnimator: {fileID: 0}
+  StarterHealth: 100
+  StarterAmmo: 60
+  StarterMoney: 0
+--- !u!114 &4920550629082293585
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4745525300049425511}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 654a181faca7d42d69160fa8326aef7b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
