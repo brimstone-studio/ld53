@@ -448,7 +448,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 86a33ab0ed346587b8e01b39f5c313cd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  JumpStrength: 2
+  JumpStrength: 1
   PlayerMove: {fileID: 1598814815992712690}
   PlayerRb: {fileID: 6156627357031141781}
 --- !u!114 &4251058278124727450
@@ -463,6 +463,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a2dab8474fb9006cca9313c5cf985f8c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  CameraHolder: {fileID: 3818678545150332841}
 --- !u!114 &8823710429591305403
 MonoBehaviour:
   m_ObjectHideFlags: 0

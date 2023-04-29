@@ -4,15 +4,17 @@ using UnityEngine;
 
 public class PlayerShoot : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
+    public Transform CameraHolder;
     void Update()
     {
-        
+        if (Input.GetMouseButtonDown(0))
+        {
+            var ray = new Ray(CameraHolder.position, CameraHolder.forward);
+            if (Physics.Raycast(ray, out var hit, 50f, 7))
+            {
+                Debug.DrawRay(CameraHolder.position, hit.point, Color.red);
+                Debug.Log(hit.distance);
+            }
+        }
     }
 }
