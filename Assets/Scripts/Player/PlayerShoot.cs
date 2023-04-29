@@ -7,6 +7,9 @@ public class PlayerShoot : MonoBehaviour
     public Transform CameraHolder;
     void Update()
     {
+        if (EscapeMenuManager.Instance.IsActive)
+            return;
+        
         if (Input.GetMouseButtonDown(0))
         {
             var ray = new Ray(CameraHolder.position, CameraHolder.forward);

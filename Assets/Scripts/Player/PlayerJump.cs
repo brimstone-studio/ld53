@@ -9,6 +9,9 @@ public class PlayerJump : MonoBehaviour
     public Rigidbody PlayerRb;
     void Update()
     {
+        if (EscapeMenuManager.Instance.IsActive)
+            return;
+        
         if (Input.GetKeyDown(KeyCode.Space) && PlayerMove.IsGrounded)
         {
             PlayerRb.AddForce(Vector3.up * JumpStrength, ForceMode.Impulse);

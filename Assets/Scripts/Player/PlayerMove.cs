@@ -26,6 +26,9 @@ public class PlayerMove : MonoBehaviour
         _isGrounded = Physics.Raycast(thisTransform.position, Vector3.down, 1.2f, 7);
         Debug.DrawLine(thisTransform.position, thisTransform.position + Vector3.down * 1.2f, Color.green);
 
+        if (EscapeMenuManager.Instance.IsActive)
+            return;
+        
         var speed = MovementSpeed;
         
         if (_isGrounded)

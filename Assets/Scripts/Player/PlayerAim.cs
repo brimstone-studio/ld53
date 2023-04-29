@@ -19,6 +19,9 @@ public class PlayerAim : MonoBehaviour
     
     void Update()
     {
+        if (EscapeMenuManager.Instance.IsActive)
+            return;
+        
         // yes they need to be switched up
         float yOffset = Input.GetAxis("Mouse X") * Time.fixedDeltaTime * Sensitivity;
         float xOffset = Input.GetAxis("Mouse Y") * Time.fixedDeltaTime * Sensitivity;

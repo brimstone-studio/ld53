@@ -448,7 +448,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 86a33ab0ed346587b8e01b39f5c313cd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  JumpStrength: 1
+  JumpStrength: 13
   PlayerMove: {fileID: 1598814815992712690}
   PlayerRb: {fileID: 6156627357031141781}
 --- !u!114 &4251058278124727450
