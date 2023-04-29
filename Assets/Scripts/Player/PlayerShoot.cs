@@ -17,7 +17,6 @@ public class PlayerShoot : MonoBehaviour
             if (Physics.Raycast(ray, out var hit, 50f, 7))
             {
                 Debug.DrawRay(CameraHolder.position, hit.point, Color.red);
-                Debug.Log(hit.distance);
             }
         }
     }
