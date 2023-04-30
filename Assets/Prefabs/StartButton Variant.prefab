@@ -120,6 +120,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ActionString: 'pick up the food '
+  Type: 1
 --- !u!1 &8994908137902573477 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: -8391222552659086748, guid: 56dba45005983773e9317fd66d1814a9,

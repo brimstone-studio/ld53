@@ -191,6 +191,30 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &492912650 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6625711486219067520, guid: 9d802724c319bcf1ea9f05f343d0c951,
+    type: 3}
+  m_PrefabInstance: {fileID: 8209212947375464145}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &592713174 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8857572767262786500, guid: 9d802724c319bcf1ea9f05f343d0c951,
+    type: 3}
+  m_PrefabInstance: {fileID: 8209212947375464145}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &647850643 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1120909505570371025, guid: a76f942bd32071da3bb86bbeaac3d2d6,
@@ -222,6 +246,18 @@ MeshCollider:
 --- !u!114 &1017178185 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 7117320003790175624, guid: 9d802724c319bcf1ea9f05f343d0c951,
+    type: 3}
+  m_PrefabInstance: {fileID: 8209212947375464145}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1120150403 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5062715488806980029, guid: 9d802724c319bcf1ea9f05f343d0c951,
     type: 3}
   m_PrefabInstance: {fileID: 8209212947375464145}
   m_PrefabAsset: {fileID: 0}
@@ -742,6 +778,21 @@ PrefabInstance:
       propertyPath: m_Name
       value: Managers
       objectReference: {fileID: 0}
+    - target: {fileID: 4920550629082293585, guid: 89c4480a4a26dfff2bc218969b77a076,
+        type: 3}
+      propertyPath: TimeText
+      value: 
+      objectReference: {fileID: 1120150403}
+    - target: {fileID: 4920550629082293585, guid: 89c4480a4a26dfff2bc218969b77a076,
+        type: 3}
+      propertyPath: WaveText
+      value: 
+      objectReference: {fileID: 592713174}
+    - target: {fileID: 4920550629082293585, guid: 89c4480a4a26dfff2bc218969b77a076,
+        type: 3}
+      propertyPath: NextWaveLabel
+      value: 
+      objectReference: {fileID: 492912650}
     - target: {fileID: 6484167059063079036, guid: 89c4480a4a26dfff2bc218969b77a076,
         type: 3}
       propertyPath: EscapeMenuCanvas

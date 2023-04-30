@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class PlayerInteract : MonoBehaviour
@@ -26,6 +27,19 @@ public class PlayerInteract : MonoBehaviour
                 interactable.Hovered = true;
                 HoverMessageManager.Instance.Message = interactable.ActionString;
                 _lastInteractable = interactable;
+                // Interaction
+                if (Input.GetKeyDown(KeyCode.E))
+                {
+                    interactable.Interact();
+                }
+            }
+            else
+            {
+                if (_lastInteractable != null)
+                {
+                    _lastInteractable.Hovered = false;
+                    HoverMessageManager.Instance.Message = String.Empty;
+                }
             }
         }
         else
