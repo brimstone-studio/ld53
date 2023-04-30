@@ -20,55 +20,50 @@ public class GamemodeManager : MonoBehaviour
     public static GamemodeManager Instance;
 
     public List<Wave> WaveList = new List<Wave>()
-    {
-        new Wave(
-            new[] {PizzaType.Red},
-    70),
-        new Wave(
-            new[] {PizzaType.Blue},
-    70),
-        new Wave(
-            new[] {PizzaType.Yellow},
-    70),
-        new Wave(
-            new[] {PizzaType.Green},
-    70),
-        new Wave(
-            new[] {PizzaType.Purple},
-    70),
-        new Wave(
-            new[] {PizzaType.Red, PizzaType.Green},
-    120),
-        new Wave(
-            new[] {PizzaType.Red, PizzaType.Blue},
-    120),
-        new Wave(
-            new[] {PizzaType.Red, PizzaType.Yellow},
-    120),
-        new Wave(
-            new[] {PizzaType.Red, PizzaType.Purple},
-    120),
-        new Wave(
-            new[] {PizzaType.Red, PizzaType.Green},
-    120),
-        new Wave(
-            new[] {PizzaType.Green, PizzaType.Blue},
-    120),
-        new Wave(
-            new[] {PizzaType.Green, PizzaType.Yellow},
-    120),
-        new Wave(
-            new[] {PizzaType.Green, PizzaType.Purple},
-    120),
-        new Wave(
-            new[] {PizzaType.Blue, PizzaType.Yellow},
-    120),
-        new Wave(
-            new[] {PizzaType.Blue, PizzaType.Purple},
-    120),
-        new Wave(
-            new[] {PizzaType.Yellow, PizzaType.Purple},
-    120),
+{
+    // Single colored pizzas
+    new Wave(new[] {PizzaType.Red}, 60),
+    new Wave(new[] {PizzaType.Blue}, 60),
+
+    // Two different colored pizzas
+    new Wave(new[] {PizzaType.Red, PizzaType.Blue}, 120),
+    new Wave(new[] {PizzaType.Blue, PizzaType.Green}, 120),
+
+    // Two different colored pizzas with one duplicate
+    new Wave(new[] {PizzaType.Red, PizzaType.Blue, PizzaType.Red}, 180),
+    new Wave(new[] {PizzaType.Blue, PizzaType.Green, PizzaType.Blue}, 180),
+
+    // Three different colored pizzas
+    new Wave(new[] {PizzaType.Red, PizzaType.Green, PizzaType.Yellow}, 180),
+    new Wave(new[] {PizzaType.Yellow, PizzaType.Purple, PizzaType.Blue}, 180),
+
+    // Three different colored pizzas with one duplicate
+    new Wave(new[] {PizzaType.Red, PizzaType.Green, PizzaType.Yellow, PizzaType.Green}, 180),
+    new Wave(new[] {PizzaType.Yellow, PizzaType.Purple, PizzaType.Blue, PizzaType.Purple}, 180),
+
+    // Four different colored pizzas
+    new Wave(new[] {PizzaType.Red, PizzaType.Blue, PizzaType.Green, PizzaType.Yellow}, 240),
+    new Wave(new[] {PizzaType.Blue, PizzaType.Green, PizzaType.Yellow, PizzaType.Purple}, 240),
+
+    // Four different colored pizzas with one duplicate
+    new Wave(new[] {PizzaType.Red, PizzaType.Blue, PizzaType.Green, PizzaType.Yellow, PizzaType.Blue}, 240),
+    new Wave(new[] {PizzaType.Blue, PizzaType.Green, PizzaType.Yellow, PizzaType.Purple, PizzaType.Yellow}, 240),
+
+    // Five different colored pizzas
+    new Wave(new[] {PizzaType.Red, PizzaType.Blue, PizzaType.Green, PizzaType.Yellow, PizzaType.Purple}, 300),
+    new Wave(new[] {PizzaType.Blue, PizzaType.Green, PizzaType.Yellow, PizzaType.Purple, PizzaType.Red}, 300),
+
+    // Five different colored pizzas with one duplicate
+    new Wave(new[] {PizzaType.Red, PizzaType.Blue, PizzaType.Green, PizzaType.Yellow, PizzaType.Purple, PizzaType.Red}, 300),
+    new Wave(new[] {PizzaType.Blue, PizzaType.Green, PizzaType.Yellow, PizzaType.Purple, PizzaType.Red, PizzaType.Blue}, 300),
+
+    // Six different colored pizzas (with two duplicates)
+    new Wave(new[] {PizzaType.Red, PizzaType.Blue, PizzaType.Green, PizzaType.Yellow, PizzaType.Purple, PizzaType.Red, PizzaType.Yellow}, 360),
+    new Wave(new[] {PizzaType.Blue, PizzaType.Green, PizzaType.Yellow, PizzaType.Purple, PizzaType.Red, PizzaType.Blue, PizzaType.Purple}, 360),
+
+    // Randomized orders with increasing difficulty
+    new Wave(new[] {PizzaType.Red, PizzaType.Yellow, PizzaType.Red, PizzaType.Green, PizzaType.Yellow, PizzaType.Purple}, 360),
+    new Wave(new[] {PizzaType.Blue, PizzaType.Purple, PizzaType.Yellow, PizzaType.Green, PizzaType.Yellow, PizzaType.Red, PizzaType.Green}, 420),
     };
 
     public Wave CurrentWave => WaveList[WaveNumber - 1];
