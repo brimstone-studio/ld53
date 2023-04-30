@@ -22,7 +22,52 @@ public class GamemodeManager : MonoBehaviour
     {
         new Wave(
             new[] {PizzaType.Red},
-    60)
+    70),
+        new Wave(
+            new[] {PizzaType.Blue},
+    70),
+        new Wave(
+            new[] {PizzaType.Yellow},
+    70),
+        new Wave(
+            new[] {PizzaType.Green},
+    70),
+        new Wave(
+            new[] {PizzaType.Purple},
+    70),
+        new Wave(
+            new[] {PizzaType.Red, PizzaType.Green},
+    120),
+        new Wave(
+            new[] {PizzaType.Red, PizzaType.Blue},
+    120),
+        new Wave(
+            new[] {PizzaType.Red, PizzaType.Yellow},
+    120),
+        new Wave(
+            new[] {PizzaType.Red, PizzaType.Purple},
+    120),
+        new Wave(
+            new[] {PizzaType.Red, PizzaType.Green},
+    120),
+        new Wave(
+            new[] {PizzaType.Green, PizzaType.Blue},
+    120),
+        new Wave(
+            new[] {PizzaType.Green, PizzaType.Yellow},
+    120),
+        new Wave(
+            new[] {PizzaType.Green, PizzaType.Purple},
+    120),
+        new Wave(
+            new[] {PizzaType.Blue, PizzaType.Yellow},
+    120),
+        new Wave(
+            new[] {PizzaType.Blue, PizzaType.Purple},
+    120),
+        new Wave(
+            new[] {PizzaType.Yellow, PizzaType.Purple},
+    120),
     };
 
     public Wave CurrentWave => WaveList[WaveNumber - 1];
