@@ -149,7 +149,8 @@ public class GamemodeManager : MonoBehaviour
         {
             return;
         }
-        
+
+        int index = 0;
         foreach (var pizzaType in CurrentWave.Delivery)
         {
             var instantiated = Instantiate(ItemListPrototype, ListOfItemsToDeliver.transform);
@@ -174,9 +175,31 @@ public class GamemodeManager : MonoBehaviour
                 default:
                     break;
             }
+            
+            // Is current
+            if (index == _deliveryIndex)
+            {
+                p.transform.Find("Highlight").gameObject.SetActive(true);
+            }
+            else
+            {
+                p.transform.Find("Highlight").gameObject.SetActive(false);
+            }
+            
+            // Delivered
+            if (pizzaType.Delivered)
+            {
+                p.transform.Find("Check").gameObject.SetActive(true);
+            }
+            else
+            {
+                p.transform.Find("Check").gameObject.SetActive(false);
+            }
 
             p.enabled = true;
             instantiated.gameObject.SetActive(true);
+
+            index++;
         }
     }
 
