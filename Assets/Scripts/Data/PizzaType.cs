@@ -4,9 +4,9 @@ using UnityEngine;
 
 public enum PizzaType
 {
-    Blue,
-    Green,
-    Red,
-    Yellow,
-    Purple
+    Blue = 0,
+    Green = 1,
+    Red = 2,
+    Yellow = 3,
+    Purple = 4
 }

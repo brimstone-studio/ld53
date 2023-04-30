@@ -11,7 +11,7 @@ public class Pickupable : MonoBehaviour
     public string ActionString = "do something";
     public PickupableType Type;
 
-    private readonly  float GLOWING_AMOUNT = 3f;
+    private readonly  float GLOWING_AMOUNT = 1.2f;
     private readonly Color GLOWING_COLOR = new Color(0.50293231f, 2, 0, 1);
 
     public bool Hovered

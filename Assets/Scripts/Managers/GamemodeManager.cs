@@ -1,13 +1,20 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.ComponentModel.Design.Serialization;
+using System.Numerics;
 using UnityEngine;
+using UnityEngine.Rendering;
+using UnityEngine.UI;
+using Quaternion = UnityEngine.Quaternion;
 
 public class GamemodeManager : MonoBehaviour
 {
     public TMPro.TMP_Text NextWaveLabel;
     public TMPro.TMP_Text WaveText;
     public TMPro.TMP_Text TimeText;
+    public Image ListOfItemsToDeliver;
+    public RectTransform ItemListPrototype;
     
     public static GamemodeManager Instance;
 
@@ -37,6 +44,10 @@ public class GamemodeManager : MonoBehaviour
 
     public int WaveNumber = 1;
 
+    public Transform PizzaSpawnpoint;
+
+    public List<GameObject> PizzaPrefabs = new List<GameObject>();
+
     private float _stopwatch;
     
     public void StartGame()
@@ -47,6 +58,48 @@ public class GamemodeManager : MonoBehaviour
             NextWaveLabel.enabled = false;
             TimeText.enabled = true;
             _stopwatch = CurrentWave.Time;
+            
+            // Read through the wave and display the pizzas that need to be delivered
+            foreach (Transform child in ListOfItemsToDeliver.transform) {
+                if (gameObject.activeSelf)
+                {
+                    GameObject.Destroy(child.gameObject);
+                }
+            }
+
+            int pizzaSpawnpointOffset = 0;
+            foreach (var pizzaType in CurrentWave.Delivery)
+            {
+                var instantiated = Instantiate(ItemListPrototype, ListOfItemsToDeliver.transform);
+                var p = instantiated.GetComponent<Image>();
+                switch (pizzaType)
+                {
+                    case PizzaType.Blue:
+                        p.color = Color.blue;
+                        break;
+                    case PizzaType.Green:
+                        p.color = Color.green;
+                        break;
+                    case PizzaType.Red:
+                        p.color = Color.red;
+                        break;
+                    case PizzaType.Yellow:
+                        p.color = Color.yellow;
+                        break;
+                    case PizzaType.Purple:
+                        p.color = Color.magenta;
+                        break;
+                    default:
+                        break;
+                }
+
+                p.enabled = true;
+                instantiated.gameObject.SetActive(true);
+                
+                // Spawn pizza prefab
+                Instantiate(PizzaPrefabs[(int)pizzaType], PizzaSpawnpoint.position, Quaternion.identity);
+                pizzaSpawnpointOffset++;
+            }
         }
     }
 
@@ -63,16 +116,16 @@ public class GamemodeManager : MonoBehaviour
         {
             _stopwatch -= Time.deltaTime;
 
-            if (_stopwatch < 0)
+            if (_stopwatch >= 0)
             {
                 float minutes = Mathf.FloorToInt(_stopwatch / 60);
                 float seconds = Mathf.FloorToInt(_stopwatch % 60);
 
-                TimeText.text = $"{minutes.ToString().PadLeft(2, '0')}:{seconds.ToString().PadLeft(8, '0')}";
+                TimeText.text = $"{minutes.ToString().PadLeft(2, '0')}:{seconds.ToString().PadLeft(2, '0')}";
             }
             else
             {
-                TimeText.text = "<color=\"red\">00:00";
+                TimeText.text = "<color=\"red\">00:00</color>";
             }
         }
         

@@ -11,7 +11,7 @@ PrefabInstance:
     - target: {fileID: -8679921383154817045, guid: defe099b2d9f5f22d9a930a9df766f33,
         type: 3}
       propertyPath: m_RootOrder
-      value: 10
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: defe099b2d9f5f22d9a930a9df766f33,
         type: 3}
@@ -80,13 +80,28 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -7511558181221131132, guid: defe099b2d9f5f22d9a930a9df766f33,
         type: 3}
+      propertyPath: m_Materials.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: defe099b2d9f5f22d9a930a9df766f33,
+        type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 2100000, guid: dad3fb1404dd23da6bf89139a50cc1ec, type: 2}
+      objectReference: {fileID: 2100000, guid: 953cb0010e0252f538bb7bbd63abe1e2, type: 2}
+    - target: {fileID: -7511558181221131132, guid: defe099b2d9f5f22d9a930a9df766f33,
+        type: 3}
+      propertyPath: m_Materials.Array.data[1]
+      value: 
+      objectReference: {fileID: 2100000, guid: 119d0878e14f1ab85b1028bb05f65d7b, type: 2}
     - target: {fileID: 919132149155446097, guid: defe099b2d9f5f22d9a930a9df766f33,
         type: 3}
       propertyPath: m_Name
       value: PurplePizza Variant
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: defe099b2d9f5f22d9a930a9df766f33,
+        type: 3}
+      propertyPath: m_TagString
+      value: Interactable
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -100,6 +115,10 @@ PrefabInstance:
         type: 3}
       insertIndex: -1
       addedObject: {fileID: 5414611585146057834}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: defe099b2d9f5f22d9a930a9df766f33,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 6212892914221507822}
   m_SourcePrefab: {fileID: 100100000, guid: defe099b2d9f5f22d9a930a9df766f33, type: 3}
 --- !u!1 &6027240043227176620 stripped
 GameObject:
@@ -156,3 +175,17 @@ MeshCollider:
   m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: -5495902117074765545, guid: defe099b2d9f5f22d9a930a9df766f33, type: 3}
+--- !u!114 &6212892914221507822
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6027240043227176620}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d75657987e5a37f2c93680a2054b171a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ActionString: pick up the pizza
+  Type: 0

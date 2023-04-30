@@ -11,7 +11,7 @@ PrefabInstance:
     - target: {fileID: -8679921383154817045, guid: defe099b2d9f5f22d9a930a9df766f33,
         type: 3}
       propertyPath: m_RootOrder
-      value: 7
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: defe099b2d9f5f22d9a930a9df766f33,
         type: 3}
@@ -80,13 +80,28 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -7511558181221131132, guid: defe099b2d9f5f22d9a930a9df766f33,
         type: 3}
+      propertyPath: m_Materials.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: defe099b2d9f5f22d9a930a9df766f33,
+        type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 2100000, guid: a24254252251b0a02a461a18f0b7cca4, type: 2}
+      objectReference: {fileID: 2100000, guid: a0ec29e17e804655481afee56b3a55ef, type: 2}
+    - target: {fileID: -7511558181221131132, guid: defe099b2d9f5f22d9a930a9df766f33,
+        type: 3}
+      propertyPath: m_Materials.Array.data[1]
+      value: 
+      objectReference: {fileID: 2100000, guid: 119d0878e14f1ab85b1028bb05f65d7b, type: 2}
     - target: {fileID: 919132149155446097, guid: defe099b2d9f5f22d9a930a9df766f33,
         type: 3}
       propertyPath: m_Name
       value: BluePizza Variant
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: defe099b2d9f5f22d9a930a9df766f33,
+        type: 3}
+      propertyPath: m_TagString
+      value: Interactable
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -100,6 +115,10 @@ PrefabInstance:
         type: 3}
       insertIndex: -1
       addedObject: {fileID: 7752950800161781260}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: defe099b2d9f5f22d9a930a9df766f33,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 2622851154312036283}
   m_SourcePrefab: {fileID: 100100000, guid: defe099b2d9f5f22d9a930a9df766f33, type: 3}
 --- !u!1 &1292651308479566485 stripped
 GameObject:
@@ -156,3 +175,17 @@ MeshCollider:
   m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: -5495902117074765545, guid: defe099b2d9f5f22d9a930a9df766f33, type: 3}
+--- !u!114 &2622851154312036283
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1292651308479566485}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d75657987e5a37f2c93680a2054b171a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ActionString: pi
+  Type: 0
