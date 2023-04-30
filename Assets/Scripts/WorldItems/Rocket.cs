@@ -15,7 +15,7 @@ public class Rocket : MonoBehaviour
     
     void OnCollisionEnter(Collision collision)
     {
-        if (collision.collider.gameObject.layer != 7)
+        if (collision.collider.gameObject.layer != 7 && collision.collider.gameObject.layer != 6)
         {
             Explode();
         }

@@ -11,6 +11,7 @@ public class PlayerMove : MonoBehaviour
     public Rigidbody PlayerRb;
     public Transform CameraHolder;
     public float MaxSlopeAngle;
+    public Animator ViewmodelAnimator;
 
     public bool IsGrounded
     {
@@ -44,6 +45,17 @@ public class PlayerMove : MonoBehaviour
         
         var hInput = Input.GetAxisRaw("Horizontal");
         var vInput = Input.GetAxisRaw("Vertical");
+        
+        Debug.Log($"{hInput != 0f} {vInput != 0f}");
+
+        if ((hInput != 0f || vInput != 0f) && _isGrounded)
+        {
+            ViewmodelAnimator.SetBool("Walking", true);
+        }
+        else
+        {
+            ViewmodelAnimator.SetBool("Walking", false);
+        }
 
         var movementVector = Vector3.Normalize(thisTransform.forward * vInput + thisTransform.right * hInput);
         movementVector = _slopeMoveDir(movementVector);
