@@ -10,6 +10,7 @@ public class PlayerMove : MonoBehaviour
     public float GroundDrag;
     public Rigidbody PlayerRb;
     public Transform CameraHolder;
+    public float MaxSlopeAngle;
 
     public bool IsGrounded
     {
@@ -45,6 +46,26 @@ public class PlayerMove : MonoBehaviour
         var vInput = Input.GetAxisRaw("Vertical");
 
         var movementVector = Vector3.Normalize(thisTransform.forward * vInput + thisTransform.right * hInput);
+        movementVector = _slopeMoveDir(movementVector);
         PlayerRb.AddForce(movementVector * speed, ForceMode.Force);
+    }
+
+    // Returns original movementVector if not on slope
+    private Vector3 _slopeMoveDir(Vector3 movementVector)
+    {
+        if (Physics.Raycast(transform.position, Vector3.down, out var hit, 1.2f))
+        {
+            float angle = Vector3.Angle(Vector3.up, hit.normal);
+            if (angle < MaxSlopeAngle && angle != 0)
+            {
+                return Vector3.ProjectOnPlane(movementVector, hit.normal).normalized;
+            }
+            else
+            {
+                return movementVector;
+            }
+        }
+
+        return movementVector;
     }
 }
