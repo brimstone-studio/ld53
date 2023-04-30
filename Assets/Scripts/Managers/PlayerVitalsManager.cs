@@ -15,6 +15,8 @@ public class PlayerVitalsManager : MonoBehaviour
     public int StarterHealth = 100;
     public int StarterAmmo = 60;
     public int StarterMoney = 0;
+
+    // public float RocketProjectileSpeed = 100000f;
     
     public int Health { get; set; }
     public int Ammo { get; set; }

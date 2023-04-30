@@ -5,19 +5,22 @@ using UnityEngine;
 public class PlayerShoot : MonoBehaviour
 {
     public Transform CameraHolder;
+    public GameObject RocketPrototype;
     void Update()
     {
         if (EscapeMenuManager.Instance.IsActive)
             return;
         
-        if (Input.GetMouseButtonDown(0))
+        if (Input.GetMouseButtonDown(0) && PlayerVitalsManager.Instance.Ammo > 0)
         {
             PlayerVitalsManager.Instance.AmmoDecrease(1);
-            var ray = new Ray(CameraHolder.position, CameraHolder.forward);
-            if (Physics.Raycast(ray, out var hit, 50f, 7))
-            {
-                Debug.DrawRay(CameraHolder.position, hit.point, Color.red);
-            }
+            var spawnedRocket = GameObject.Instantiate(RocketPrototype, RocketPrototype.transform.position, CameraHolder.rotation);
+            spawnedRocket.SetActive(true);
+            // var ray = new Ray(CameraHolder.position, CameraHolder.forward);
+            // if (Physics.Raycast(ray, out var hit, 50f, 7))
+            // {
+            //     Debug.DrawRay(CameraHolder.position, hit.point, Color.red);
+            // }
         }
     }
 }
