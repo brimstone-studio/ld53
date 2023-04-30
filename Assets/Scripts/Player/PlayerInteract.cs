@@ -16,7 +16,6 @@ public class PlayerInteract : MonoBehaviour
         var ray = new Ray(CameraHolder.position, CameraHolder.forward);
         if (Physics.Raycast(ray, out var hit, InteractionMaxDistance, 7))
         {
-            Debug.Log(hit.collider.name);
             if (hit.collider.CompareTag("Interactable"))
             {
                 var interactable = hit.collider.gameObject.GetComponent<Pickupable>();
