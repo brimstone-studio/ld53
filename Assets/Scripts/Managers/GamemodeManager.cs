@@ -66,7 +66,7 @@ public class GamemodeManager : MonoBehaviour
     new Wave(new[] {PizzaType.Blue, PizzaType.Purple, PizzaType.Yellow, PizzaType.Green, PizzaType.Yellow, PizzaType.Red, PizzaType.Green}, 420),
     };
 
-    public Wave CurrentWave => WaveList[WaveNumber - 1];
+    public Wave CurrentWave => WaveNumber <= WaveList.Count ? WaveList[WaveNumber - 1] : WaveList.Last();
 
     void Start()
     {
@@ -83,13 +83,28 @@ public class GamemodeManager : MonoBehaviour
 
     private bool _gameIsCurrentlyHappening = false;
 
-    public int WaveNumber = 1;
+    public int WaveNumber
+    {
+        get
+        {
+            return _waveNumber;
+        }
+        set
+        {
+            _waveNumber = value;
+            WaveText.text = $"Wave <color=\"yellow\">{_waveNumber}</color>";
+        }
+    }
+
+    private int _waveNumber = 1;
 
     public Transform PizzaSpawnpoint;
 
     public List<GameObject> PizzaPrefabs = new List<GameObject>();
 
     private float _stopwatch;
+
+    private int _deliveryIndex = 0;
     
     public void StartGame()
     {
@@ -99,6 +114,7 @@ public class GamemodeManager : MonoBehaviour
             NextWaveLabel.enabled = false;
             TimeText.enabled = true;
             _stopwatch = CurrentWave.Time;
+            _deliveryIndex = 0;
 
             _updateUiList();
             
@@ -127,6 +143,11 @@ public class GamemodeManager : MonoBehaviour
             {
                 GameObject.Destroy(child.gameObject);
             }
+        }
+
+        if (!this._gameIsCurrentlyHappening)
+        {
+            return;
         }
         
         foreach (var pizzaType in CurrentWave.Delivery)
@@ -164,11 +185,27 @@ public class GamemodeManager : MonoBehaviour
         return pizza.PickedUp ? 1f : 0.25f;
     }
 
+    public void DeliverPizza(PizzaType pt)
+    {
+        if (CurrentWave.Delivery[_deliveryIndex].Type == pt)
+        {
+            CurrentWave.Delivery[_deliveryIndex].Delivered = true;
+            _deliveryIndex++;
+            _updateUiList();
+            if (_deliveryIndex >= CurrentWave.Delivery.Length)
+            {
+                FinishWave();
+            }
+        }
+    }
+
     public void FinishWave()
     {
         _gameIsCurrentlyHappening = false;
         NextWaveLabel.enabled = true;
         TimeText.enabled = false;
+        WaveNumber++;
+        _updateUiList();
     }
 
     void Update()

@@ -511,7 +511,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   CameraHolder: {fileID: 3818678545150332841}
-  InteractionMaxDistance: 2
+  InteractionMaxDistance: 4
 --- !u!1 &4870542666414408740
 GameObject:
   m_ObjectHideFlags: 0

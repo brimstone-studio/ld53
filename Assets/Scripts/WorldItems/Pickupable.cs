@@ -55,6 +55,9 @@ public class Pickupable : MonoBehaviour
             case PickupableType.Pizza:
                 _pizzaInteraction();
                 break;
+            case PickupableType.Door:
+                _doorInteraction();
+                break;
         }
     }
 
@@ -88,10 +91,16 @@ public class Pickupable : MonoBehaviour
         }
         
     }
+
+    private void _doorInteraction()
+    {
+        GamemodeManager.Instance.DeliverPizza(PizzaType);
+    }
 }
 
 public enum PickupableType
 {
     Pizza,
-    StartButton
+    StartButton,
+    Door
 }
