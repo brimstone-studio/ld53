@@ -189,3 +189,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ActionString: pick up the pizza
   Type: 0
+  PizzaType: 1

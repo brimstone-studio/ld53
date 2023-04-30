@@ -10,6 +10,9 @@ public class Pickupable : MonoBehaviour
     // In the format "Press [key] to.."
     public string ActionString = "do something";
     public PickupableType Type;
+    
+    // Non applicable if not pizza
+    public PizzaType PizzaType;
 
     private readonly  float GLOWING_AMOUNT = 1.2f;
     private readonly Color GLOWING_COLOR = new Color(0.50293231f, 2, 0, 1);
@@ -74,6 +77,15 @@ public class Pickupable : MonoBehaviour
 
     private void _pizzaInteraction()
     {
+        if (PizzaType != null)
+        {
+            GamemodeManager.Instance.PickedUpPizza(PizzaType);
+            Destroy(this.gameObject);
+        }
+        else
+        {
+            Debug.LogError("Picked up a pizza without a pizza type");
+        }
         
     }
 }

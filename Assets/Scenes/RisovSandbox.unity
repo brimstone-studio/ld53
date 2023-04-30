@@ -871,7 +871,8 @@ PrefabInstance:
       propertyPath: HoverMessageTextObject
       value: 
       objectReference: {fileID: 1017178185}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 818154943259331896, guid: 89c4480a4a26dfff2bc218969b77a076, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
