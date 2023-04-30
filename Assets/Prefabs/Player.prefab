@@ -421,6 +421,7 @@ MonoBehaviour:
   GroundDrag: 7
   PlayerRb: {fileID: 6156627357031141781}
   CameraHolder: {fileID: 3818678545150332841}
+  MaxSlopeAngle: 45
 --- !u!114 &3278087198225882145
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -477,6 +478,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   CameraHolder: {fileID: 3818678545150332841}
+  InteractionMaxDistance: 1.1
 --- !u!1 &2629223297258481637
 GameObject:
   m_ObjectHideFlags: 0
