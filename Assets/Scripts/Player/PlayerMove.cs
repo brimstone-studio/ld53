@@ -45,8 +45,6 @@ public class PlayerMove : MonoBehaviour
         
         var hInput = Input.GetAxisRaw("Horizontal");
         var vInput = Input.GetAxisRaw("Vertical");
-        
-        Debug.Log($"{hInput != 0f} {vInput != 0f}");
 
         if ((hInput != 0f || vInput != 0f) && _isGrounded)
         {

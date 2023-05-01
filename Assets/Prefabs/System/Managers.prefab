@@ -10,11 +10,11 @@ GameObject:
   m_Component:
   - component: {fileID: 3230044066347569282}
   - component: {fileID: 6484167059063079036}
-  - component: {fileID: 818154943259331896}
   - component: {fileID: 1773362170706543179}
   - component: {fileID: 4637859354261469644}
   - component: {fileID: 4920550629082293585}
   - component: {fileID: 8332814790975568238}
+  - component: {fileID: 2523684773332632656}
   m_Layer: 0
   m_Name: Managers
   m_TagString: Untagged
@@ -50,18 +50,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   EscapeMenuCanvas: {fileID: 0}
---- !u!114 &818154943259331896
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4745525300049425511}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b98b2496b5fbe129bb0550d950f7dc7f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &1773362170706543179
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -106,6 +94,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 654a181faca7d42d69160fa8326aef7b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  NextWaveLabel: {fileID: 0}
+  WaveText: {fileID: 0}
+  TimeText: {fileID: 0}
+  ListOfItemsToDeliver: {fileID: 0}
+  ItemListPrototype: {fileID: 0}
+  PizzaSpawnpoint: {fileID: 0}
+  PizzaPrefabs: []
 --- !u!114 &8332814790975568238
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -118,3 +113,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1ec1d58fedfa172d1944c6b3762dd39d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  HoverMessageTextObject: {fileID: 0}
+--- !u!114 &2523684773332632656
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4745525300049425511}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a61b42e7b2acc2cdaa77086a8c00fa85, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  HitmarkerAnimator: {fileID: 0}
+  RobotKillAnimator: {fileID: 0}
+  DamageAnimator: {fileID: 0}
