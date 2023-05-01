@@ -42,7 +42,10 @@ public class RobotHealth : MonoBehaviour
         RobotEyes.material.SetColor("_EmissionColor", EmissionRed);
         RobotSound.Stop();
         NavMeshAgent.enabled = false;
-        HitmarkerManager.Instance.RobotKill();
+        if (GamemodeManager.Instance.GameIsCurrentlyHappening)
+        {
+            HitmarkerManager.Instance.RobotKill();
+        }
         Destroy(this.gameObject, 2f);
     }
 

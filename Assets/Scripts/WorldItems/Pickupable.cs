@@ -58,6 +58,12 @@ public class Pickupable : MonoBehaviour
             case PickupableType.Door:
                 _doorInteraction();
                 break;
+            case PickupableType.BuyHealth:
+                _healthBuy();
+                break;
+            case PickupableType.BuyAmmo:
+                _ammoBuy();
+                break;
         }
     }
 
@@ -97,11 +103,37 @@ public class Pickupable : MonoBehaviour
     {
         GamemodeManager.Instance.DeliverPizza(PizzaType);
     }
+
+    private void _healthBuy()
+    {
+        if (PlayerVitalsManager.Instance.Health < 75 && PlayerVitalsManager.Instance.Money >= 100)
+        {
+            PlayerVitalsManager.Instance.Money -= 100;
+            SoundManager.Instance.Pickup.Play();
+            PlayerVitalsManager.Instance.Health += 25;
+            if (PlayerVitalsManager.Instance.Health > 100)
+            {
+                PlayerVitalsManager.Instance.Health = 100;
+            }
+        }
+    }
+
+    private void _ammoBuy()
+    {
+        if (PlayerVitalsManager.Instance.Money >= 50)
+        {
+            PlayerVitalsManager.Instance.Money -= 50;
+            SoundManager.Instance.Pickup.Play();
+            PlayerVitalsManager.Instance.Ammo += 10;
+        }
+    }
 }
 
 public enum PickupableType
 {
     Pizza,
     StartButton,
-    Door
+    Door,
+    BuyHealth,
+    BuyAmmo
 }

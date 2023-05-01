@@ -8,6 +8,7 @@ public class HitmarkerManager : MonoBehaviour
     public Animator HitmarkerAnimator;
     public Animator RobotKillAnimator;
     public Animator DamageAnimator;
+    public Animator TipAnimator;
     
     private void Start()
     {
@@ -27,5 +28,10 @@ public class HitmarkerManager : MonoBehaviour
     public void PlayerDamage()
     {
         DamageAnimator.SetTrigger("Hit");
+    }
+
+    public void Tip()
+    {
+        TipAnimator.SetTrigger("Hit");
     }
 }

@@ -226,6 +226,16 @@ public class GamemodeManager : MonoBehaviour
             _deliveryIndex++;
             ScoreManager.Instance.PizzasDelivered += 1;
             _updateUiList();
+            if (_stopwatch > 0f)
+            {
+                PlayerVitalsManager.Instance.Money += 25;
+                HitmarkerManager.Instance.Tip();
+            }
+            else
+            {
+                PlayerVitalsManager.Instance.Money += 0;
+            }
+            
             if (_deliveryIndex >= CurrentWave.Delivery.Length)
             {
                 FinishWave();
