@@ -18,6 +18,8 @@ public class PlayerShoot : MonoBehaviour
             var spawnedRocket = GameObject.Instantiate(RocketPrototype, RocketPrototype.transform.position, CameraHolder.rotation);
             ViewmodelAnimator.SetTrigger("Shoot");
             spawnedRocket.SetActive(true);
+            SoundManager.Instance.RocketShot.Play();
+            
             // var ray = new Ray(CameraHolder.position, CameraHolder.forward);
             // if (Physics.Raycast(ray, out var hit, 50f, 7))
             // {

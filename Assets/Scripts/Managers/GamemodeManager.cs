@@ -19,6 +19,9 @@ public class GamemodeManager : MonoBehaviour
     
     public static GamemodeManager Instance;
 
+    [NonSerialized]
+    public List<RobotSpawner> Spawners = new List<RobotSpawner>();
+
     public List<Wave> WaveList = new List<Wave>()
 {
     // Single colored pizzas
@@ -125,6 +128,12 @@ public class GamemodeManager : MonoBehaviour
                 Instantiate(PizzaPrefabs[(int)pizzaType.Type], PizzaSpawnpoint.position, Quaternion.identity);
                 pizzaSpawnpointOffset++;
             }
+            
+            // Spawn robots
+            foreach (var robotSpawner in Spawners)
+            {
+                robotSpawner.Spawn(WaveNumber * 2);
+            }
         }
     }
 
@@ -213,6 +222,7 @@ public class GamemodeManager : MonoBehaviour
         if (CurrentWave.Delivery[_deliveryIndex].Type == pt)
         {
             CurrentWave.Delivery[_deliveryIndex].Delivered = true;
+            SoundManager.Instance.PizzaGiven.Play();
             _deliveryIndex++;
             _updateUiList();
             if (_deliveryIndex >= CurrentWave.Delivery.Length)

@@ -44,6 +44,8 @@ public class PlayerVitalsManager : MonoBehaviour
         Health -= amount;
         AmmoAnimator.Play("Idle");
         HealthAnimator.SetTrigger("Pulse");
+        HitmarkerManager.Instance.PlayerDamage();
+        SoundManager.Instance.DamageTakenSound.Play();
     }
 
     public void AmmoDecrease(int amount)

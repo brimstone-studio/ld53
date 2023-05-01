@@ -5,6 +5,8 @@ using UnityEngine;
 
 public class RobotDamage : MonoBehaviour
 {
+    public RobotHealth RobotHealth;
+    
     [NonSerialized]
     public Transform player;
     public float damageDistance = 2f;
@@ -23,7 +25,7 @@ public class RobotDamage : MonoBehaviour
     {
         _timeSinceLastDamage += Time.deltaTime;
 
-        if (_timeSinceLastDamage >= 1f / damageFrequency)
+        if (_timeSinceLastDamage >= 1f / damageFrequency && RobotHealth.Heath > 0)
         {
             float distanceToPlayer = Vector3.Distance(transform.position, player.position);
 

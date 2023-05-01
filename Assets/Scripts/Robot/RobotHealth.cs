@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
@@ -7,6 +8,11 @@ using UnityEngine.AI;
 public class RobotHealth : MonoBehaviour
 {
     public NavMeshAgent NavMeshAgent;
+    public Renderer RobotEyes;
+    public AudioSource RobotSound;
+    
+    [ColorUsage(true, true)]
+    public Color EmissionRed;
     
     public int Heath
     {
@@ -33,8 +39,18 @@ public class RobotHealth : MonoBehaviour
 
     private void _die()
     {
+        RobotEyes.material.SetColor("_EmissionColor", EmissionRed);
+        RobotSound.Stop();
         NavMeshAgent.enabled = false;
         HitmarkerManager.Instance.RobotKill();
         Destroy(this.gameObject, 2f);
+    }
+
+    private void FixedUpdate()
+    {
+        if (!GamemodeManager.Instance.GameIsCurrentlyHappening)
+        {
+            _die();
+        }
     }
 }
