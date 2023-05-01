@@ -13,6 +13,9 @@ public class PlayerInteract : MonoBehaviour
     
     void Update()
     {
+        if (PlayerVitalsManager.Instance.PlayerDead)
+            return;
+        
         var ray = new Ray(CameraHolder.position, CameraHolder.forward);
         if (Physics.Raycast(ray, out var hit, InteractionMaxDistance, 7))
         {

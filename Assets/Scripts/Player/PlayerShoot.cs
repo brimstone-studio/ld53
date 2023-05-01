@@ -9,6 +9,9 @@ public class PlayerShoot : MonoBehaviour
     public Animator ViewmodelAnimator;
     void Update()
     {
+        if (PlayerVitalsManager.Instance.PlayerDead)
+            return;
+        
         if (EscapeMenuManager.Instance.IsActive)
             return;
         

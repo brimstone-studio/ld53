@@ -9,6 +9,7 @@ public class SoundManager : MonoBehaviour
     public AudioSource RocketShot;
     public AudioSource PizzaGiven;
     public AudioSource Pickup;
+    public AudioSource PlayerDie;
 
     public static SoundManager Instance;
 

@@ -19,6 +19,9 @@ public class PlayerAim : MonoBehaviour
     
     void Update()
     {
+        if (PlayerVitalsManager.Instance.PlayerDead)
+            return;
+        
         if (EscapeMenuManager.Instance.IsActive)
             return;
         

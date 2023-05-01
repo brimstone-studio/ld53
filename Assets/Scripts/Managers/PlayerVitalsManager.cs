@@ -1,6 +1,8 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Rendering;
 using UnityEngine.UI;
 
 public class PlayerVitalsManager : MonoBehaviour
@@ -12,6 +14,10 @@ public class PlayerVitalsManager : MonoBehaviour
     public Animator HealthAnimator;
     public Animator AmmoAnimator;
 
+    public Canvas GameoverScreen;
+    public Canvas GameOverlay;
+    public Volume BlackAndWhitePostProcessing;
+
     public int StarterHealth = 100;
     public int StarterAmmo = 60;
     public int StarterMoney = 0;
@@ -21,6 +27,9 @@ public class PlayerVitalsManager : MonoBehaviour
     public int Health { get; set; }
     public int Ammo { get; set; }
     public int Money { get; set; }
+
+    [NonSerialized]
+    public bool PlayerDead = false;
 
     public static PlayerVitalsManager Instance;
     
@@ -46,6 +55,19 @@ public class PlayerVitalsManager : MonoBehaviour
         HealthAnimator.SetTrigger("Pulse");
         HitmarkerManager.Instance.PlayerDamage();
         SoundManager.Instance.DamageTakenSound.Play();
+        if (Health < 0)
+        {
+            // player death
+            ScoreManager.Instance.UpdateScoreText();
+            Health = 0;
+            GameoverScreen.gameObject.SetActive(true);
+            GameOverlay.gameObject.SetActive(false);
+            BlackAndWhitePostProcessing.weight = 1;
+            PlayerDead = true;
+            SoundManager.Instance.PlayerDie.Play();
+            Cursor.visible = true;
+            Cursor.lockState = CursorLockMode.None;
+        }
     }
 
     public void AmmoDecrease(int amount)

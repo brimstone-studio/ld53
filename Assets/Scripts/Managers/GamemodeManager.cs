@@ -224,6 +224,7 @@ public class GamemodeManager : MonoBehaviour
             CurrentWave.Delivery[_deliveryIndex].Delivered = true;
             SoundManager.Instance.PizzaGiven.Play();
             _deliveryIndex++;
+            ScoreManager.Instance.PizzasDelivered += 1;
             _updateUiList();
             if (_deliveryIndex >= CurrentWave.Delivery.Length)
             {

@@ -24,6 +24,9 @@ public class PlayerMove : MonoBehaviour
     private bool _isGrounded = false;
     void FixedUpdate()
     {
+        if (PlayerVitalsManager.Instance.PlayerDead)
+            return;
+        
         // efficient access
         var thisTransform = transform;
         _isGrounded = Physics.Raycast(thisTransform.position, Vector3.down, 1.2f, 7);

@@ -23,6 +23,9 @@ public class RobotDamage : MonoBehaviour
 
     void Update()
     {
+        if (PlayerVitalsManager.Instance.PlayerDead)
+            return;
+        
         _timeSinceLastDamage += Time.deltaTime;
 
         if (_timeSinceLastDamage >= 1f / damageFrequency && RobotHealth.Heath > 0)
