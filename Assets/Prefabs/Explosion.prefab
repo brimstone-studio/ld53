@@ -19561,5 +19561,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   BlastRadius: 5
-  ExplosionForce: 60
+  ExplosionForce: 40
   ExplosionDuration: 2
