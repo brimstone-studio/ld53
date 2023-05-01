@@ -28,7 +28,7 @@ public class RobotDamage : MonoBehaviour
         
         _timeSinceLastDamage += Time.deltaTime;
 
-        if (_timeSinceLastDamage >= 1f / damageFrequency && RobotHealth.Heath > 0)
+        if (_timeSinceLastDamage >= 1f / damageFrequency && RobotHealth.Heath > 0 && GamemodeManager.Instance.GameIsCurrentlyHappening)
         {
             float distanceToPlayer = Vector3.Distance(transform.position, player.position);
 
