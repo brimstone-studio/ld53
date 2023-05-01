@@ -82,6 +82,7 @@ public class Pickupable : MonoBehaviour
     {
         if (PizzaType != null)
         {
+            SoundManager.Instance.Pickup.Play();
             GamemodeManager.Instance.PickedUpPizza(PizzaType);
             Destroy(this.gameObject);
         }

@@ -9,9 +9,10 @@ public class PlayerMove : MonoBehaviour
     public float MovementSpeed;
     public float GroundDrag;
     public Rigidbody PlayerRb;
-    public Transform CameraHolder;
+    public AudioSource Footsteps;
     public float MaxSlopeAngle;
     public Animator ViewmodelAnimator;
+    
 
     public bool IsGrounded
     {
@@ -49,10 +50,12 @@ public class PlayerMove : MonoBehaviour
         if ((hInput != 0f || vInput != 0f) && _isGrounded)
         {
             ViewmodelAnimator.SetBool("Walking", true);
+            Footsteps.volume = 1f;
         }
         else
         {
             ViewmodelAnimator.SetBool("Walking", false);
+            Footsteps.volume = 0f;
         }
 
         var movementVector = Vector3.Normalize(thisTransform.forward * vInput + thisTransform.right * hInput);

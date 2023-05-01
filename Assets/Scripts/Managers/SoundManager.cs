@@ -8,6 +8,7 @@ public class SoundManager : MonoBehaviour
     public AudioSource DamageTakenSound;
     public AudioSource RocketShot;
     public AudioSource PizzaGiven;
+    public AudioSource Pickup;
 
     public static SoundManager Instance;
 
